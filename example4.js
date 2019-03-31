@@ -129,7 +129,7 @@ window.addEventListener('touchmove', function(e){
      x=e.pageX - rect.left;
      y=e.pageY - rect.top;
      ctx.beginPath();
-     ctx.fillStyle = "red";
+     ctx.fillStyle = colorpickerValue;
      ctx.arc(x, y, ctx.lineWidth, 0, 2 * Math.PI);
      ctx.fill();
 });
