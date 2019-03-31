@@ -16,8 +16,6 @@ function draw(){
      ctx = canvas.getContext("2d");
      ctx.fillStyle=colorpickerValue;
      ctx.lineWidth = 20;
-     var lineWidth = ctx.lineWidth;
-     var currentlineWidth = ctx.lineWidth;
 
      // draw a line from the current location to the new location
      canvas.onmousemove = function(e) {
