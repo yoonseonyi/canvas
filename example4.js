@@ -133,4 +133,3 @@ window.addEventListener('touchmove', function(e){
      ctx.arc(x, y, ctx.lineWidth, 0, 2 * Math.PI);
      ctx.fill();
 });
-                         
