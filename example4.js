@@ -13,7 +13,6 @@ function draw(){
      canvas = document.getElementById("canvas");
      canvas.width = window.innerWidth * .8;
      canvas.height = window.innerHeight * .8;
-     if (canvas == null || canvas.getContext == null) return;
      ctx = canvas.getContext("2d");
      ctx.fillStyle=colorpickerValue;
      ctx.lineWidth = 20;
@@ -111,13 +110,10 @@ window.addEventListener('touchmove', function(e){
      var currentlineWidth = ctx.lineWidth;
      drawing = true;
           if (drawing) {
-               //e.preventDefault();
                ctx.beginPath();
                ctx.moveTo(sx, sy);
                sx = canvasX(e.clientX);
                sy = canvasY(e.clientY);
-               //ctx.lineTo(sx, sy);
-               ctx.stroke();
                ctx.arc(sx, sy, ctx.lineWidth, 0, 2 * Math.PI);
                ctx.fill();
           }
