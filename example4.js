@@ -2,8 +2,8 @@ var canvas;
 var ctx;
 var sx, sy;                      // 현재 위치
 var drawing = false;          // 현재 그리는 중인가?
-var colorPicker = document.getElementById("colorpicker");
-var colorpickerValue = document.getElementById("colorpicker").value;
+var colorPicker = document.getElementById("colorPicker");
+var colorpickerValue = colorPicker.value;
 
 window.onload = function() {
      draw();
@@ -15,7 +15,7 @@ function draw(){
      canvas.height = window.innerHeight * .8;
      if (canvas == null || canvas.getContext == null) return;
      ctx = canvas.getContext("2d");
-     ctx.fillStyle="red";
+     ctx.fillStyle=colorpickerValue;
      ctx.lineWidth = 20;
      var lineWidth = ctx.lineWidth;
      var currentlineWidth = ctx.lineWidth;
