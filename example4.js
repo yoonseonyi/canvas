@@ -1,7 +1,7 @@
 var canvas;
 var ctx;
-var sx, sy;                      // 현재 위치
-var drawing = false;          // 현재 그리는 중인가?
+var sx, sy;                      // current location
+var drawing = false;          
 var colorPicker = document.getElementById("colorPicker");
 var colorpickerValue = colorPicker.value;
 
@@ -20,7 +20,7 @@ function draw(){
      var lineWidth = ctx.lineWidth;
      var currentlineWidth = ctx.lineWidth;
 
-     // 현재 위치에서 새로 이동한 곳까지 선을 그린다.
+     // draw a line from the current location to the new location
      canvas.onmousemove = function(e) {
           drawing = true;
           if (drawing) {
