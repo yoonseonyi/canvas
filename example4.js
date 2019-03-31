@@ -123,6 +123,7 @@ window.addEventListener('touchmove', function(e){
           }
 })
 */
+
 window.addEventListener('touchmove', function(e){
      const rect = canvas.getBoundingClientRect();
      x=e.pageX - rect.left;
