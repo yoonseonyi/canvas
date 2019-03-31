@@ -87,6 +87,16 @@ window.addEventListener('keydown',function(e){
     }
   });
 
+window.addEventListener('touchmove', function(e){
+     const rect = canvas.getBoundingClientRect();
+     x=e.pageX - rect.left;
+     y=e.pageY - rect.top;
+     ctx.beginPath();
+     ctx.fillStyle = "red";
+     ctx.arc(x, y, ctx.lineWidth, 0, 2 * Math.PI);
+     ctx.fill();
+});                   
+
 colorPicker.addEventListener('change',function(e) {
      var color = e.target.value;
      ctx.fillStyle=color;
@@ -124,13 +134,3 @@ window.addEventListener('touchmove', function(e){
 })
 */
 
-window.addEventListener('touchmove', function(e){
-     const rect = canvas.getBoundingClientRect();
-     x=e.pageX - rect.left;
-     y=e.pageY - rect.top;
-     ctx.beginPath();
-     ctx.fillStyle = "red";
-     ctx.arc(x, y, ctx.lineWidth, 0, 2 * Math.PI);
-     ctx.fill();
-});
-                         
