@@ -2,8 +2,8 @@ var canvas;
 var ctx;
 var sx, sy;                      // 현재 위치
 var drawing = false;          // 현재 그리는 중인가?
-var colorPicker = document.getElementById("colorPicker");
-var colorpickerValue = colorPicker.value;
+var colorPicker = document.getElementById("colorpicker");
+var colorpickerValue = document.getElementById("colorpicker").value;
 
 window.onload = function() {
      draw();
@@ -15,7 +15,7 @@ function draw(){
      canvas.height = window.innerHeight * .8;
      if (canvas == null || canvas.getContext == null) return;
      ctx = canvas.getContext("2d");
-     ctx.fillStyle=colorpickerValue;
+     ctx.fillStyle="red";
      ctx.lineWidth = 20;
      var lineWidth = ctx.lineWidth;
      var currentlineWidth = ctx.lineWidth;
@@ -87,16 +87,6 @@ window.addEventListener('keydown',function(e){
     }
   });
 
-window.addEventListener('touchmove', function(e){
-     const rect = canvas.getBoundingClientRect();
-     x=e.pageX - rect.left;
-     y=e.pageY - rect.top;
-     ctx.beginPath();
-     ctx.fillStyle = colorpickerValue;
-     ctx.arc(x, y, ctx.lineWidth, 0, 2 * Math.PI);
-     ctx.fill();
-});                   
-
 colorPicker.addEventListener('change',function(e) {
      var color = e.target.value;
      ctx.fillStyle=color;
@@ -108,4 +98,39 @@ function canvasResize() {
      canvas.height = window.innerHeight * .8;
      draw();
 }
+/*
+window.addEventListener('touchmove', function(e){
+     canvas = document.getElementById("canvas");
+     canvas.width = window.innerWidth * .8;
+     canvas.height = window.innerHeight * .8;
+     if (canvas == null || canvas.getContext == null) return;
+     ctx = canvas.getContext("2d");
+     ctx.fillStyle="red";
+     ctx.lineWidth = 20;
+     var lineWidth = ctx.lineWidth;
+     var currentlineWidth = ctx.lineWidth;
+     drawing = true;
+          if (drawing) {
+               //e.preventDefault();
+               ctx.beginPath();
+               ctx.moveTo(sx, sy);
+               sx = canvasX(e.clientX);
+               sy = canvasY(e.clientY);
+               //ctx.lineTo(sx, sy);
+               ctx.stroke();
+               ctx.arc(sx, sy, ctx.lineWidth, 0, 2 * Math.PI);
+               ctx.fill();
+          }
+})
+*/
 
+window.addEventListener('touchmove', function(e){
+     const rect = canvas.getBoundingClientRect();
+     x=e.pageX - rect.left;
+     y=e.pageY - rect.top;
+     ctx.beginPath();
+     ctx.fillStyle = "red";
+     ctx.arc(x, y, ctx.lineWidth, 0, 2 * Math.PI);
+     ctx.fill();
+});
+                         
